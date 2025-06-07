@@ -46,15 +46,19 @@ const services = [
 ];
 ---
 
-<section id="services" class="py-20 bg-white">
+<section id="services" class="py-20 bg-gradient-to-br from-white via-primary-50/30 to-primary-100/20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center mb-16">
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-primary-100/60 backdrop-blur-sm border border-primary-200 text-primary-700 text-sm font-medium mb-6">
+        <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
+        Professional Beauty Services
+      </div>
       <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-        Our Premium Services
+        Our <span class="gradient-text">Premium Services</span>
       </h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Discover our comprehensive range of beauty services designed to enhance your natural beauty 
+        Discover our comprehensive range of beauty services designed to enhance your natural beauty
         and leave you feeling confident and radiant.
       </p>
     </div>
@@ -62,29 +66,31 @@ const services = [
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {services.map((service) => (
-        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
+        <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-primary-200/50 hover:border-primary-300 group">
           <!-- Service Icon -->
           <div class="p-6 pb-4">
-            <div class="text-4xl mb-4">{service.icon}</div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
+            <div class="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mb-4 group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
+              <span class="text-2xl">{service.icon}</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-800 transition-colors">{service.title}</h3>
             <p class="text-gray-600 mb-4">{service.description}</p>
-            
+
             <!-- Features -->
             <ul class="space-y-2 mb-6">
               {service.features.map((feature) => (
                 <li class="flex items-center text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-4 h-4 text-primary-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                   {feature}
                 </li>
               ))}
             </ul>
-            
+
             <!-- Price and CTA -->
             <div class="flex items-center justify-between">
-              <span class="text-lg font-semibold text-primary">{service.price}</span>
-              <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">
+              <span class="text-lg font-semibold text-primary-600">{service.price}</span>
+              <a href="#contact" class="btn-primary text-sm px-4 py-2">
                 Book Now
               </a>
             </div>
@@ -95,15 +101,15 @@ const services = [
     
     <!-- Additional Info -->
     <div class="mt-16 text-center">
-      <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8">
+      <div class="bg-gradient-to-r from-primary-100/60 to-primary-200/40 backdrop-blur-sm rounded-2xl p-8 border border-primary-200/50">
         <h3 class="text-2xl font-serif font-semibold text-gray-900 mb-4">
-          Can't Find What You're Looking For?
+          Can't Find What You're <span class="gradient-text">Looking For?</span>
         </h3>
         <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-          We offer many additional services and can customize treatments to meet your specific needs. 
+          We offer many additional services and can customize treatments to meet your specific needs.
           Contact us to discuss your beauty goals and we'll create the perfect service package for you.
         </p>
-        <a href="#contact" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors">
+        <a href="#contact" class="btn-primary inline-flex items-center">
           Contact Us
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
