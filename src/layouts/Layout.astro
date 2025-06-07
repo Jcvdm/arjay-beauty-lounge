@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 export interface Props {
 	title: string;
 	description?: string;
@@ -8,7 +10,7 @@ const { title, description = "ARJAY Beauty Lounge - Professional Beauty Services
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -17,37 +19,47 @@ const { title, description = "ARJAY Beauty Lounge - Professional Beauty Services
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
-		<!-- Tailwind CSS -->
-		<script src="https://cdn.tailwindcss.com"></script>
-		<script>
-			tailwind.config = {
-				theme: {
-					extend: {
-						colors: {
-							primary: '#d946ef',
-							secondary: '#ec4899',
-							accent: '#f97316',
-						}
-					}
-				}
-			}
-		</script>
-
-		<!-- Google Fonts -->
+		<!-- Preload critical fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+		<!-- SEO Meta Tags -->
+		<meta name="keywords" content="beauty salon, hair styling, facial treatments, manicure, pedicure, makeup, beauty services">
+		<meta name="author" content="ARJAY Beauty Lounge">
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content={description}>
+		<meta property="og:type" content="website">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content={title}>
+		<meta name="twitter:description" content={description}>
+
+		<!-- Theme Color -->
+		<meta name="theme-color" content="#ec4899">
 	</head>
-	<body class="font-sans bg-white text-gray-900">
+	<body class="font-sans text-neutral-800 bg-white antialiased">
 		<slot />
+
+		<!-- Scroll Animation Script -->
+		<script>
+			// Intersection Observer for scroll animations
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('in-view');
+					}
+				});
+			}, observerOptions);
+
+			// Observe all elements with animate-on-scroll class
+			document.addEventListener('DOMContentLoaded', () => {
+				const animatedElements = document.querySelectorAll('.animate-on-scroll');
+				animatedElements.forEach(el => observer.observe(el));
+			});
+		</script>
 	</body>
 </html>
-
-<style is:global>
-	.font-sans {
-		font-family: 'Inter', system-ui, sans-serif;
-	}
-	.font-serif {
-		font-family: 'Playfair Display', serif;
-	}
-</style>

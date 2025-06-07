@@ -1,84 +1,148 @@
 ---
-// Hero section for ARJAY Beauty Lounge
+// Modern Hero section for ARJAY Beauty Lounge
 ---
 
-<section id="home" class="relative bg-gradient-to-br from-pink-50 to-purple-50 min-h-screen flex items-center">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 bg-pattern-dots opacity-30"></div>
+
+  <!-- Floating Elements -->
+  <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-full blur-3xl opacity-60 animate-float"></div>
+  <div class="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-accent-200 to-primary-200 rounded-full blur-3xl opacity-60 animate-float" style="animation-delay: -3s;"></div>
+  <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-secondary-200 to-accent-200 rounded-full blur-2xl opacity-40 animate-float" style="animation-delay: -1.5s;"></div>
+
+  <div class="container-custom relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-screen py-20">
       <!-- Content -->
-      <div class="text-center lg:text-left">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight">
-          Welcome to
-          <span class="text-primary block">ARJAY Beauty Lounge</span>
+      <div class="text-center lg:text-left animate-on-scroll">
+        <!-- Badge -->
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-primary-200 text-primary-700 text-sm font-medium mb-8">
+          <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
+          Premium Beauty Services
+        </div>
+
+        <h1 class="heading-xl text-neutral-900 mb-6">
+          Transform Your
+          <span class="gradient-text block">Natural Beauty</span>
         </h1>
-        <p class="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed">
-          Experience the ultimate in beauty and relaxation. Our expert team provides premium beauty services 
-          in a luxurious, welcoming environment designed to make you look and feel your absolute best.
+
+        <p class="body-lg text-neutral-600 mb-8 max-w-xl">
+          Experience luxury beauty treatments in our serene sanctuary. Our expert team combines
+          artistry with the finest products to reveal your most radiant self.
         </p>
-        
+
         <!-- CTA Buttons -->
-        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a href="#contact" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-primary/90 transition-colors shadow-lg">
-            Book Appointment
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+          <a href="#contact" class="btn-primary group">
+            <span>Book Your Experience</span>
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
           </a>
-          <a href="#services" class="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-medium hover:bg-primary hover:text-white transition-colors">
-            View Services
+          <a href="#services" class="btn-secondary group">
+            <span>Explore Services</span>
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
           </a>
         </div>
-        
-        <!-- Features -->
-        <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+        <!-- Trust Indicators -->
+        <div class="grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0">
           <div class="text-center lg:text-left">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-3">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div class="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 mb-3 shadow-soft">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h3 class="font-semibold text-gray-900">Expert Stylists</h3>
-            <p class="text-sm text-gray-600 mt-1">Professional and experienced team</p>
+            <h3 class="heading-sm text-neutral-900 mb-1">Certified</h3>
+            <p class="text-sm text-neutral-600">Expert Professionals</p>
           </div>
-          
+
           <div class="text-center lg:text-left">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-3">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 mb-3 shadow-soft">
+              <svg class="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h3 class="font-semibold text-gray-900">Flexible Hours</h3>
-            <p class="text-sm text-gray-600 mt-1">Convenient scheduling options</p>
+            <h3 class="heading-sm text-neutral-900 mb-1">Flexible</h3>
+            <p class="text-sm text-neutral-600">Convenient Hours</p>
           </div>
-          
+
           <div class="text-center lg:text-left">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-3">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            <div class="w-16 h-16 bg-gradient-to-br from-accent-100 to-accent-200 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 mb-3 shadow-soft">
+              <svg class="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
               </svg>
             </div>
-            <h3 class="font-semibold text-gray-900">Premium Care</h3>
-            <p class="text-sm text-gray-600 mt-1">Luxury treatments and products</p>
+            <h3 class="heading-sm text-neutral-900 mb-1">Premium</h3>
+            <p class="text-sm text-neutral-600">Luxury Products</p>
           </div>
         </div>
       </div>
-      
-      <!-- Image/Visual -->
-      <div class="relative">
-        <div class="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl flex items-center justify-center">
-          <!-- Placeholder for hero image -->
-          <div class="text-center">
-            <div class="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-16 h-16 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-              </svg>
+
+      <!-- Visual -->
+      <div class="relative animate-on-scroll" style="animation-delay: 0.2s;">
+        <div class="relative">
+          <!-- Main Image Container -->
+          <div class="aspect-golden bg-gradient-to-br from-primary-100 via-white to-secondary-100 rounded-5xl shadow-large overflow-hidden border border-white/50">
+            <!-- Hero Image Placeholder -->
+            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 relative">
+              <div class="text-center z-10">
+                <div class="w-24 h-24 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-medium">
+                  <svg class="w-12 h-12 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="heading-sm text-neutral-700 mb-2">Your Beauty Journey</h3>
+                <p class="text-neutral-500 text-sm">Professional salon photography will go here</p>
+              </div>
+
+              <!-- Decorative overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent"></div>
             </div>
-            <p class="text-gray-500 text-sm">Hero Image Placeholder</p>
-            <p class="text-gray-400 text-xs mt-1">Replace with salon photos</p>
           </div>
+
+          <!-- Floating Cards -->
+          <div class="absolute -top-6 -left-6 card-glass p-4 animate-float">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-xl flex items-center justify-center">
+                <span class="text-white font-bold text-sm">5★</span>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-neutral-800">500+ Happy Clients</p>
+                <p class="text-xs text-neutral-600">Trusted Reviews</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-6 -right-6 card-glass p-4 animate-float" style="animation-delay: -2s;">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-accent-400 to-primary-400 rounded-xl flex items-center justify-center">
+                <span class="text-white font-bold text-sm">15+</span>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-neutral-800">Premium Services</p>
+                <p class="text-xs text-neutral-600">Expert Care</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Background Decorative Elements -->
+          <div class="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-accent-200 to-primary-200 rounded-full blur-2xl opacity-60 -z-10"></div>
+          <div class="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-br from-secondary-200 to-accent-200 rounded-full blur-3xl opacity-50 -z-10"></div>
         </div>
-        
-        <!-- Decorative elements -->
-        <div class="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full"></div>
-        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary/20 rounded-full"></div>
       </div>
     </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <a href="#services" class="flex flex-col items-center text-neutral-600 hover:text-primary-600 transition-colors duration-200">
+      <span class="text-sm font-medium mb-2">Discover More</span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </a>
   </div>
 </section>
