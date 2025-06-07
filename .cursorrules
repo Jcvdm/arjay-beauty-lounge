@@ -1,0 +1,31 @@
+# Arjay Beauty Lounge - Project Intelligence
+
+## Project Overview
+Beauty salon business requiring digital presence and management system.
+
+## Memory Bank Protocol
+- ALWAYS read ALL memory bank files at start of every session
+- Memory bank located in `/memory-bank/` directory
+- Core files: projectbrief.md, productContext.md, activeContext.md, systemPatterns.md, techContext.md, progress.md
+- Update memory bank when discovering new patterns or after significant changes
+
+## Development Preferences
+*To be discovered and documented as we work together*
+
+## Critical Implementation Paths
+*To be identified during development*
+
+## Project-Specific Patterns
+*To be documented as patterns emerge*
+
+## Known Challenges
+*To be recorded as they are encountered*
+
+## Tool Usage Patterns
+*To be documented based on effective workflows*
+
+## User Workflow Preferences
+*To be learned and captured through interaction*
+
+---
+*This file will evolve as we work together and discover effective patterns for this project.*
