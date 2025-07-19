@@ -1,121 +1,136 @@
 ---
-// Services section for ARJAY Beauty Lounge
+// Real ARJAY Beauty Lounge Services
 const services = [
   {
-    title: "Hair Styling & Cuts",
-    description: "Professional haircuts, styling, and treatments for all hair types. From classic cuts to modern trends.",
-    price: "Starting from $45",
-    icon: "✂️",
-    features: ["Consultation", "Wash & Cut", "Styling", "Hair Treatment"]
+    title: "Nails (Acrylic)",
+    description: "Professional acrylic nail extensions and nail art for stunning, long-lasting results.",
+    icon: "nail",
+    features: ["Acrylic Extensions", "Nail Art Design", "French Manicure", "Nail Repair", "Cuticle Care"]
   },
   {
-    title: "Hair Coloring",
-    description: "Expert hair coloring services including highlights, balayage, ombre, and full color transformations.",
-    price: "Starting from $85",
-    icon: "🎨",
-    features: ["Color Consultation", "Professional Products", "Color Correction", "Aftercare Advice"]
+    title: "7in1 Hydrafacials (RF) & Skin Rejuvenation",
+    description: "Advanced 7-in-1 hydrafacial treatment with radiofrequency for complete skin rejuvenation.",
+    icon: "facial",
+    features: ["Deep Cleansing", "Exfoliation", "Extraction", "Hydration", "RF Skin Tightening", "LED Light Therapy", "Antioxidant Protection"]
   },
   {
-    title: "Facial Treatments",
-    description: "Rejuvenating facial treatments designed to cleanse, exfoliate, and nourish your skin.",
-    price: "Starting from $65",
-    icon: "✨",
-    features: ["Deep Cleansing", "Exfoliation", "Moisturizing", "Anti-aging"]
+    title: "RF Laser Slimming",
+    description: "Non-invasive radiofrequency laser treatment for body contouring and fat reduction.",
+    icon: "slimming",
+    features: ["Body Contouring", "Fat Reduction", "Skin Tightening", "Cellulite Treatment", "Non-Invasive"]
   },
   {
-    title: "Manicure & Pedicure",
-    description: "Complete nail care services including classic and gel manicures, pedicures, and nail art.",
-    price: "Starting from $35",
-    icon: "💅",
-    features: ["Nail Shaping", "Cuticle Care", "Polish Application", "Hand/Foot Massage"]
+    title: "Laser (Diode) Hair Removal",
+    description: "Permanent hair reduction using advanced diode laser technology for smooth, hair-free skin.",
+    icon: "laser",
+    features: ["Permanent Hair Reduction", "All Skin Types", "Pain-Free Treatment", "Fast Results", "FDA Approved"]
   },
   {
-    title: "Eyebrow & Lash Services",
-    description: "Professional eyebrow shaping, tinting, and eyelash extensions to enhance your natural beauty.",
-    price: "Starting from $25",
-    icon: "👁️",
-    features: ["Brow Shaping", "Tinting", "Lash Extensions", "Lash Lift"]
+    title: "Laser Tattoo Removal",
+    description: "Safe and effective laser tattoo removal using advanced technology for complete tattoo elimination.",
+    icon: "tattoo",
+    features: ["All Tattoo Colors", "Minimal Scarring", "Professional Grade", "Multiple Sessions", "Aftercare Support"]
   },
   {
-    title: "Makeup Services",
-    description: "Professional makeup application for special events, photoshoots, or everyday glamour.",
-    price: "Starting from $55",
-    icon: "💄",
-    features: ["Event Makeup", "Bridal Makeup", "Photoshoot Ready", "Makeup Lessons"]
+    title: "Black Carbon/Diamond Facial",
+    description: "Luxurious carbon laser facial treatment for deep pore cleansing and skin brightening.",
+    icon: "diamond",
+    features: ["Deep Pore Cleansing", "Skin Brightening", "Oil Control", "Blackhead Removal", "Instant Glow"]
+  },
+  {
+    title: "Microneedling",
+    description: "Advanced microneedling treatment to stimulate collagen production and improve skin texture.",
+    icon: "microneedle",
+    features: ["Collagen Stimulation", "Scar Reduction", "Fine Line Treatment", "Skin Texture Improvement", "Natural Healing"]
   }
 ];
+
+
 ---
 
-<section id="services" class="py-20 bg-gradient-to-br from-white via-primary-50/30 to-primary-100/20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="services" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <div class="inline-flex items-center px-4 py-2 rounded-full bg-primary-100/60 backdrop-blur-sm border border-primary-200 text-primary-700 text-sm font-medium mb-6">
+      <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/80 backdrop-blur-sm border border-white/30 text-primary-700 text-sm font-medium mb-8 shadow-lg">
         <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
         Professional Beauty Services
       </div>
-      <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-        Our <span class="gradient-text">Premium Services</span>
+      <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);">
+        Our <span class="text-primary-200">Premium Services</span>
       </h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      <p class="text-lg text-white/90 max-w-2xl mx-auto mb-12" style="text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);">
         Discover our comprehensive range of beauty services designed to enhance your natural beauty
         and leave you feeling confident and radiant.
       </p>
     </div>
+
+
     
-    <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Services List -->
+    <div class="max-w-4xl mx-auto space-y-4">
       {services.map((service) => (
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-primary-200/50 hover:border-primary-300 group">
-          <!-- Service Icon -->
-          <div class="p-6 pb-4">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mb-4 group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
-              <span class="text-2xl">{service.icon}</span>
+        <div class="bg-white/80 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-white/30 hover:border-primary-300 group">
+          <div class="flex items-center p-4">
+            <!-- Service Icon -->
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-primary-200 transition-colors">
+              {service.icon === "nail" && (
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3V1m0 20v-2m5-9h7l-3 9h-4V3h4l3 9z"/>
+                </svg>
+              )}
+              {service.icon === "facial" && (
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3a9 9 0 100 18 9 9 0 000-18zm-3 7a1 1 0 112 0 1 1 0 01-2 0zm6 0a1 1 0 112 0 1 1 0 01-2 0zm-3 5c-1.5 0-2.5-1-2.5-2h5c0 1-1 2-2.5 2z"/>
+                </svg>
+              )}
+              {service.icon === "slimming" && (
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              )}
+              {service.icon === "laser" && (
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+              )}
+              {service.icon === "tattoo" && (
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3V1m10 2a2 2 0 012 2v12a4 4 0 01-4 4"/>
+                </svg>
+              )}
+              {service.icon === "diamond" && (
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2l3.09 6.26L22 9l-5.91 5.91L18 22l-6-3.27L6 22l1.91-7.09L2 9l6.91-.74L12 2z"/>
+                </svg>
+              )}
+              {service.icon === "microneedle" && (
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              )}
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-800 transition-colors">{service.title}</h3>
-            <p class="text-gray-600 mb-4">{service.description}</p>
 
-            <!-- Features -->
-            <ul class="space-y-2 mb-6">
-              {service.features.map((feature) => (
-                <li class="flex items-center text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-primary-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  {feature}
-                </li>
-              ))}
-            </ul>
+            <!-- Service Content -->
+            <div class="flex-1">
+              <h3 class="text-lg font-serif font-semibold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {service.description}
+              </p>
+            </div>
 
-            <!-- Price and CTA -->
-            <div class="flex items-center justify-between">
-              <span class="text-lg font-semibold text-primary-600">{service.price}</span>
-              <a href="#contact" class="btn-primary text-sm px-4 py-2">
+            <!-- Book Now Button -->
+            <div class="flex-shrink-0 ml-4">
+              <button class="bg-primary text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
                 Book Now
-              </a>
+              </button>
             </div>
           </div>
         </div>
       ))}
     </div>
-    
-    <!-- Additional Info -->
-    <div class="mt-16 text-center">
-      <div class="bg-gradient-to-r from-primary-100/60 to-primary-200/40 backdrop-blur-sm rounded-2xl p-8 border border-primary-200/50">
-        <h3 class="text-2xl font-serif font-semibold text-gray-900 mb-4">
-          Can't Find What You're <span class="gradient-text">Looking For?</span>
-        </h3>
-        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-          We offer many additional services and can customize treatments to meet your specific needs.
-          Contact us to discuss your beauty goals and we'll create the perfect service package for you.
-        </p>
-        <a href="#contact" class="btn-primary inline-flex items-center">
-          Contact Us
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
+
   </div>
 </section>

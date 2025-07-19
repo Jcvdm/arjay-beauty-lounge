@@ -1,148 +1,189 @@
 ---
-// Modern Hero section for ARJAY Beauty Lounge
+// Modern Hero section for ARJAY Beauty Lounge with Background Slideshow
 ---
 
-<section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100">
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 bg-pattern-dots opacity-20"></div>
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- Fixed Background Slideshow -->
+  <div class="fixed inset-0 z-0">
+    <div class="slideshow-container">
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <img src="/beauty-bg-1.jpg" alt="ARJAY Beauty Lounge - Professional Beauty Services" class="w-full h-full object-cover fixed-bg" />
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide">
+        <img src="/beauty-bg-2.jpg" alt="ARJAY Beauty Lounge - Luxury Treatments" class="w-full h-full object-cover fixed-bg" />
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide">
+        <img src="/beauty-bg-3.jpg" alt="ARJAY Beauty Lounge - Expert Care" class="w-full h-full object-cover fixed-bg" />
+      </div>
+    </div>
+    <!-- Enhanced overlay for better text readability -->
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
+  </div>
 
-  <!-- Floating Elements with Cyan Theme -->
-  <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary-200 to-primary-300 rounded-full blur-3xl opacity-50 animate-float"></div>
-  <div class="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-primary-300 to-primary-400 rounded-full blur-3xl opacity-40 animate-float" style="animation-delay: -3s;"></div>
-  <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full blur-2xl opacity-60 animate-float" style="animation-delay: -1.5s;"></div>
-
-  <div class="container-custom relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-screen py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <div class="min-h-screen flex items-center justify-center py-20">
       <!-- Content -->
-      <div class="text-center lg:text-left animate-on-scroll">
+      <div class="text-center animate-on-scroll">
         <!-- Badge -->
-        <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-primary-200 text-primary-700 text-sm font-medium mb-8">
+        <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/80 backdrop-blur-sm border border-white/30 text-primary-700 text-sm font-medium mb-8 shadow-lg">
           <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
           Premium Beauty Services
         </div>
 
-        <h1 class="heading-xl text-neutral-900 mb-6">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
           Transform Your
-          <span class="gradient-text block">Natural Beauty</span>
+          <span class="block bg-gradient-to-r from-primary-300 via-white to-primary-200 bg-clip-text text-transparent">
+            Natural Beauty
+          </span>
         </h1>
 
-        <p class="body-lg text-neutral-600 mb-8 max-w-xl">
+        <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
           Experience luxury beauty treatments in our serene sanctuary. Our expert team combines
           artistry with the finest products to reveal your most radiant self.
         </p>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-          <a href="#contact" class="btn-primary group">
-            <span>Book Your Experience</span>
-            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-          <a href="#services" class="btn-secondary group">
-            <span>Explore Services</span>
-            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Trust Indicators with Cyan Theme -->
-        <div class="grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0">
-          <div class="text-center lg:text-left">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 mb-3 shadow-soft border border-primary-200">
-              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="heading-sm text-gray-900 mb-1">Certified</h3>
-            <p class="text-sm text-primary-600">Expert Professionals</p>
-          </div>
-
-          <div class="text-center lg:text-left">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary-200 to-primary-300 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 mb-3 shadow-soft border border-primary-300">
-              <svg class="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="heading-sm text-gray-900 mb-1">Flexible</h3>
-            <p class="text-sm text-primary-600">Convenient Hours</p>
-          </div>
-
-          <div class="text-center lg:text-left">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary-300 to-primary-400 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 mb-3 shadow-soft border border-primary-400">
+        <!-- Contact Information -->
+        <div class="bg-white/20 backdrop-blur-md rounded-3xl p-8 mb-12 border border-white/30 shadow-2xl max-w-lg mx-auto">
+          <div class="flex items-center justify-center space-x-6">
+            <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center shadow-lg">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
             </div>
-            <h3 class="heading-sm text-gray-900 mb-1">Premium</h3>
-            <p class="text-sm text-primary-600">Luxury Products</p>
+            <div class="text-center">
+              <p class="text-white/80 mb-2 text-lg">Contact Riana</p>
+              <a href="tel:0763709400" class="text-3xl font-bold text-white hover:text-primary-200 transition-colors block">
+                076 370 9400
+              </a>
+              <p class="text-white/70 mt-2">WhatsApp & Calls Welcome</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Visual -->
-      <div class="relative animate-on-scroll" style="animation-delay: 0.2s;">
-        <div class="relative">
-          <!-- Main Image Container -->
-          <div class="aspect-golden bg-gradient-to-br from-primary-100 via-white to-secondary-100 rounded-5xl shadow-large overflow-hidden border border-white/50">
-            <!-- Hero Image Placeholder -->
-            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 relative">
-              <div class="text-center z-10">
-                <div class="w-24 h-24 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-medium">
-                  <svg class="w-12 h-12 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                  </svg>
-                </div>
-                <h3 class="heading-sm text-neutral-700 mb-2">Your Beauty Journey</h3>
-                <p class="text-neutral-500 text-sm">Professional salon photography will go here</p>
-              </div>
-
-              <!-- Decorative overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent"></div>
-            </div>
-          </div>
-
-          <!-- Floating Cards -->
-          <div class="absolute -top-6 -left-6 card-glass p-4 animate-float">
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-xl flex items-center justify-center">
-                <span class="text-white font-bold text-sm">5★</span>
-              </div>
-              <div>
-                <p class="text-sm font-semibold text-neutral-800">500+ Happy Clients</p>
-                <p class="text-xs text-neutral-600">Trusted Reviews</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="absolute -bottom-6 -right-6 card-glass p-4 animate-float" style="animation-delay: -2s;">
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 bg-gradient-to-br from-accent-400 to-primary-400 rounded-xl flex items-center justify-center">
-                <span class="text-white font-bold text-sm">15+</span>
-              </div>
-              <div>
-                <p class="text-sm font-semibold text-neutral-800">Premium Services</p>
-                <p class="text-xs text-neutral-600">Expert Care</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Background Decorative Elements -->
-          <div class="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-accent-200 to-primary-200 rounded-full blur-2xl opacity-60 -z-10"></div>
-          <div class="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-br from-secondary-200 to-accent-200 rounded-full blur-3xl opacity-50 -z-10"></div>
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+          <a href="tel:0763709400" class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center group">
+            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            <span>Call Now</span>
+          </a>
+          <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 hover:border-white/50 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center group backdrop-blur-sm">
+            <span>View Services</span>
+            <svg class="w-6 h-6 ml-3 group-hover:translate-y-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </button>
         </div>
+
       </div>
     </div>
   </div>
-
-  <!-- Scroll Indicator -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-    <a href="#services" class="flex flex-col items-center text-neutral-600 hover:text-primary-600 transition-colors duration-200">
-      <span class="text-sm font-medium mb-2">Discover More</span>
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
-    </a>
-  </div>
 </section>
+
+<style>
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Fixed background effect */
+  .fixed-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -10;
+  }
+
+
+
+  /* Hero section specific styling */
+  #home {
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Enhanced text shadows for better readability */
+  #home h1, #home p, #home span {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  /* GLOBAL STYLING - Make ALL sections match Hero background */
+  section:not(#home) {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Add Hero's exact overlay to all sections except Hero itself */
+  section:not(#home)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  section:not(#home)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    z-index: 2;
+  }
+
+  /* Ensure ALL content is above overlays */
+  section:not(#home) > * {
+    position: relative;
+    z-index: 20;
+  }
+
+  /* Additional safety for nested content */
+  section:not(#home) * {
+    position: relative;
+  }
+</style>
+
+<script>
+  // Background slideshow functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showNextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    // Change slide every 6 seconds
+    setInterval(showNextSlide, 6000);
+  });
+</script>
