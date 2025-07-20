@@ -147,21 +147,68 @@
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Mobile menu button enhancement */
-.mobile-menu-button {
+/* Mobile Dropdown Navigation - Enhanced Visibility */
+.mobile-dropdown-button {
   @apply relative;
-  @apply bg-white/80 backdrop-blur-sm;
-  @apply border border-gray-200;
-  @apply shadow-sm;
+  @apply min-w-[80px];
 }
 
-.mobile-menu-button:hover {
-  @apply bg-white shadow-md;
-  @apply border-primary-200;
+.mobile-dropdown-button[aria-expanded="true"] svg {
+  @apply rotate-180;
 }
 
-.mobile-menu-button:active {
-  @apply bg-primary-50;
+.mobile-dropdown-menu {
+  @apply animate-in slide-in-from-top-2 duration-200;
+}
+
+.mobile-dropdown-menu.show {
+  @apply block;
+}
+
+.mobile-dropdown-item {
+  @apply flex items-center space-x-3 px-4 py-3;
+  @apply text-gray-700 hover:text-primary-600;
+  @apply hover:bg-primary-50;
+  @apply transition-all duration-200;
+  @apply border-b border-gray-100 last:border-b-0;
+  @apply text-sm font-medium;
+}
+
+.mobile-dropdown-item:hover {
+  @apply bg-gradient-to-r from-primary-50 to-primary-100;
+  @apply transform translate-x-1;
+}
+
+.mobile-dropdown-item:active {
+  @apply bg-primary-100 scale-98;
+}
+
+/* Prominent Book Now Button */
+.mobile-book-button {
+  @apply relative overflow-hidden;
+  @apply min-w-[100px];
+  @apply shadow-lg;
+}
+
+.mobile-book-button:hover {
+  @apply transform -translate-y-0.5;
+  @apply shadow-xl;
+}
+
+.mobile-book-button:active {
+  @apply transform translate-y-0 scale-95;
+}
+
+.mobile-book-button::before {
+  content: '';
+  @apply absolute inset-0;
+  @apply bg-gradient-to-r from-white/20 to-transparent;
+  @apply transform -skew-x-12 -translate-x-full;
+  @apply transition-transform duration-700;
+}
+
+.mobile-book-button:hover::before {
+  @apply translate-x-full;
 }
 
 /* Mobile Typography Optimization - R-005 */
@@ -399,4 +446,42 @@
   @apply bg-primary-600 text-white px-4 py-2 rounded;
   @apply focus:top-4 transition-all duration-200;
   @apply z-50;
+}
+
+/* Mobile dropdown responsive design */
+@media (max-width: 640px) {
+  .mobile-dropdown-menu {
+    @apply w-44;
+  }
+
+  .mobile-dropdown-item {
+    @apply px-3 py-2 text-xs;
+  }
+
+  .mobile-book-button {
+    @apply px-3 py-2 min-w-[90px];
+  }
+
+  .mobile-book-button span {
+    @apply text-xs;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+  .mobile-dropdown-menu {
+    @apply w-40;
+  }
+
+  .mobile-book-button {
+    @apply px-2 py-1.5 min-w-[80px];
+  }
+
+  .mobile-book-button span {
+    @apply text-xs;
+  }
+
+  .mobile-dropdown-button span {
+    @apply text-xs;
+  }
 }
