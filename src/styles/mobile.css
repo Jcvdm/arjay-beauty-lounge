@@ -367,7 +367,21 @@
 }
 
 .mobile-form-select {
-  @apply mobile-form-input;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  @apply w-full;
+  @apply bg-white/95 backdrop-blur-md;
+  @apply border border-gray-300 rounded-lg;
+  @apply text-gray-800 placeholder-gray-500;
+  @apply px-4 py-3;
+  @apply shadow-sm;
+  @apply text-base; /* Prevents zoom on iOS */
+  @apply focus:ring-2 focus:ring-primary-500 focus:outline-none;
+  @apply transition-all duration-200;
   @apply appearance-none;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
   background-position: right 12px center;
@@ -377,18 +391,60 @@
 }
 
 .mobile-form-textarea {
-  @apply mobile-form-input;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  @apply w-full;
+  @apply bg-white/95 backdrop-blur-md;
+  @apply border border-gray-300 rounded-lg;
+  @apply text-gray-800 placeholder-gray-500;
+  @apply px-4 py-3;
+  @apply shadow-sm;
+  @apply text-base; /* Prevents zoom on iOS */
+  @apply focus:ring-2 focus:ring-primary-500 focus:outline-none;
+  @apply transition-all duration-200;
   @apply resize-none;
   min-height: 120px;
 }
 
 /* Mobile-specific input types */
 .mobile-tel-input {
-  @apply mobile-form-input;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  @apply w-full;
+  @apply bg-white/95 backdrop-blur-md;
+  @apply border border-gray-300 rounded-lg;
+  @apply text-gray-800 placeholder-gray-500;
+  @apply px-4 py-3;
+  @apply shadow-sm;
+  @apply text-base; /* Prevents zoom on iOS */
+  @apply focus:ring-2 focus:ring-primary-500 focus:outline-none;
+  @apply transition-all duration-200;
 }
 
 .mobile-email-input {
-  @apply mobile-form-input;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  @apply w-full;
+  @apply bg-white/95 backdrop-blur-md;
+  @apply border border-gray-300 rounded-lg;
+  @apply text-gray-800 placeholder-gray-500;
+  @apply px-4 py-3;
+  @apply shadow-sm;
+  @apply text-base; /* Prevents zoom on iOS */
+  @apply focus:ring-2 focus:ring-primary-500 focus:outline-none;
+  @apply transition-all duration-200;
 }
 
 /* Form validation states */
@@ -442,7 +498,15 @@
 
 /* Mobile Contact Actions */
 .mobile-contact-action {
-  @apply btn-touch w-full;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  @apply rounded-lg transition-all duration-150 ease-out;
+  @apply active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  @apply w-full;
   @apply bg-gradient-to-r from-primary-500 to-primary-600;
   @apply text-white font-semibold rounded-lg;
   @apply shadow-lg hover:shadow-xl;
@@ -463,23 +527,59 @@
 
 /* Click-to-call and WhatsApp buttons */
 .mobile-call-button {
-  @apply mobile-contact-action;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  @apply rounded-lg transition-all duration-150 ease-out;
+  @apply active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  @apply w-full;
+  @apply text-white font-semibold rounded-lg;
+  @apply shadow-lg hover:shadow-xl;
+  @apply transition-all duration-300;
+  @apply flex items-center justify-center space-x-2;
   @apply bg-gradient-to-r from-green-500 to-green-600;
-  @apply border-green-400/30;
+  @apply border border-green-400/30;
 }
 
 .mobile-call-button:hover {
   @apply from-green-400 to-green-500;
+  @apply transform -translate-y-1;
+  @apply shadow-2xl;
+}
+
+.mobile-call-button:active {
+  @apply transform translate-y-0 scale-95;
 }
 
 .mobile-whatsapp-button {
-  @apply mobile-contact-action;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  @apply rounded-lg transition-all duration-150 ease-out;
+  @apply active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  @apply w-full;
+  @apply text-white font-semibold rounded-lg;
+  @apply shadow-lg hover:shadow-xl;
+  @apply transition-all duration-300;
+  @apply flex items-center justify-center space-x-2;
   @apply bg-gradient-to-r from-green-600 to-green-700;
-  @apply border-green-500/30;
+  @apply border border-green-500/30;
 }
 
 .mobile-whatsapp-button:hover {
   @apply from-green-500 to-green-600;
+  @apply transform -translate-y-1;
+  @apply shadow-2xl;
+}
+
+.mobile-whatsapp-button:active {
+  @apply transform translate-y-0 scale-95;
 }
 
 /* Mobile-specific utilities */
@@ -515,7 +615,11 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .mobile-form-input {
+  .mobile-form-input,
+  .mobile-form-select,
+  .mobile-form-textarea,
+  .mobile-tel-input,
+  .mobile-email-input {
     @apply border-2 border-gray-800 bg-white;
     @apply text-gray-900;
   }
