@@ -77,14 +77,20 @@
   @apply fixed inset-0 z-50 lg:hidden;
   @apply bg-black/50 backdrop-blur-sm;
   @apply transition-all duration-300 ease-out;
+  @apply opacity-0 pointer-events-none;
+}
+
+.mobile-nav-container.show {
+  @apply opacity-100 pointer-events-auto;
 }
 
 .mobile-nav-panel {
   @apply absolute right-0 top-0 h-full w-80 max-w-sm;
-  @apply bg-white/95 backdrop-blur-xl;
-  @apply border-l border-white/20;
+  @apply bg-white backdrop-blur-xl;
+  @apply border-l border-gray-200 shadow-2xl;
   @apply transform transition-transform duration-300 ease-out;
   @apply translate-x-full;
+  @apply overflow-y-auto;
 }
 
 .mobile-nav-panel.open {
@@ -93,17 +99,39 @@
 
 .mobile-nav-item {
   @apply block w-full text-left px-6 py-4;
-  @apply text-lg font-medium text-gray-800;
+  @apply text-base font-medium text-gray-800;
   @apply hover:bg-primary-50 hover:text-primary-700;
-  @apply transition-colors duration-200;
+  @apply transition-all duration-200;
   @apply border-b border-gray-100;
+  @apply relative;
+}
+
+.mobile-nav-item:last-child {
+  @apply border-b-0;
+}
+
+.mobile-nav-item:hover {
+  @apply bg-gradient-to-r from-primary-50 to-primary-100;
+  @apply transform translate-x-1;
+}
+
+.mobile-nav-item:active {
+  @apply bg-primary-100 scale-98;
 }
 
 /* Hamburger Menu Animation */
+.hamburger-container {
+  @apply w-6 h-6 flex flex-col justify-center items-center;
+}
+
 .hamburger-line {
   @apply w-6 h-0.5 bg-current mb-1;
   @apply transition-all duration-300 ease-out;
   @apply origin-center;
+}
+
+.hamburger-line:last-child {
+  @apply mb-0;
 }
 
 .hamburger-open .hamburger-line:nth-child(1) {
@@ -117,6 +145,23 @@
 
 .hamburger-open .hamburger-line:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile menu button enhancement */
+.mobile-menu-button {
+  @apply relative;
+  @apply bg-white/80 backdrop-blur-sm;
+  @apply border border-gray-200;
+  @apply shadow-sm;
+}
+
+.mobile-menu-button:hover {
+  @apply bg-white shadow-md;
+  @apply border-primary-200;
+}
+
+.mobile-menu-button:active {
+  @apply bg-primary-50;
 }
 
 /* Mobile Typography Optimization - R-005 */
