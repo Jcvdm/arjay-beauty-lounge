@@ -2,33 +2,40 @@
 /* Following PRD Phase 1 Requirements */
 
 /* Touch Target Standards - R-001 */
-.touch-target {
+/* Touch target properties are now applied directly to classes that need them */
+
+/* Enhanced touch targets for buttons */
+.btn-touch {
   min-height: 44px;
   min-width: 44px;
   padding: 12px;
   position: relative;
   cursor: pointer;
-  user-select: none;
   -webkit-tap-highlight-color: transparent;
-}
-
-/* Enhanced touch targets for buttons */
-.btn-touch {
-  @apply touch-target;
   @apply rounded-lg transition-all duration-150 ease-out;
   @apply active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
 }
 
 /* Navigation touch targets */
 .nav-touch {
-  @apply touch-target;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   @apply hover:bg-white/10 active:bg-white/20 transition-colors duration-150;
   @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
 }
 
 /* Form touch targets */
 .form-touch {
-  @apply touch-target;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   @apply text-base; /* Prevents zoom on iOS */
   @apply focus:ring-2 focus:ring-primary-500 focus:outline-none;
   @apply transition-all duration-200;
@@ -179,16 +186,17 @@
   @apply bg-white/85 backdrop-blur-2xl;
   @apply border border-white/40;
   @apply shadow-2xl;
-  @apply animate-in slide-in-from-top-2 duration-300;
   @apply rounded-xl;
   @apply overflow-hidden;
+  @apply transform transition-all duration-300 ease-out;
+  @apply opacity-0 scale-95 -translate-y-2;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
 .mobile-dropdown-menu.show {
-  @apply block;
+  @apply block opacity-100 scale-100 translate-y-0;
 }
 
 .mobile-dropdown-item {
@@ -387,7 +395,12 @@
 
 .error-message {
   @apply text-red-600 text-sm mt-1 font-medium;
-  @apply animate-in slide-in-from-top-1 duration-200;
+  @apply transform transition-all duration-200;
+  @apply opacity-0 -translate-y-1;
+}
+
+.error-message.show {
+  @apply opacity-100 translate-y-0;
 }
 
 /* Mobile Service Cards - R-006 */
@@ -482,7 +495,6 @@
 
 /* Mobile-optimized animations */
 @media (prefers-reduced-motion: reduce) {
-  .touch-target,
   .btn-touch,
   .nav-touch,
   .form-touch,
