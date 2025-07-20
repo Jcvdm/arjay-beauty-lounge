@@ -1,0 +1,328 @@
+/* Mobile-First Touch Interface Optimization */
+/* Following PRD Phase 1 Requirements */
+
+/* Touch Target Standards - R-001 */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Enhanced touch targets for buttons */
+.btn-touch {
+  @apply touch-target;
+  @apply rounded-lg transition-all duration-150 ease-out;
+  @apply active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+/* Navigation touch targets */
+.nav-touch {
+  @apply touch-target;
+  @apply hover:bg-white/10 active:bg-white/20 transition-colors duration-150;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+/* Form touch targets */
+.form-touch {
+  @apply touch-target;
+  @apply text-base; /* Prevents zoom on iOS */
+  @apply focus:ring-2 focus:ring-primary-500 focus:outline-none;
+  @apply transition-all duration-200;
+}
+
+/* Touch feedback animations */
+.touch-feedback {
+  position: relative;
+  overflow: hidden;
+}
+
+.touch-feedback::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+  pointer-events: none;
+}
+
+.touch-feedback:active::before {
+  width: 200px;
+  height: 200px;
+}
+
+/* Mobile-specific spacing for touch targets */
+.touch-spacing {
+  margin: 8px;
+}
+
+.touch-spacing-sm {
+  margin: 4px;
+}
+
+.touch-spacing-lg {
+  margin: 12px;
+}
+
+/* Mobile Navigation Enhancements - R-002 */
+.mobile-nav-container {
+  @apply fixed inset-0 z-50 lg:hidden;
+  @apply bg-black/50 backdrop-blur-sm;
+  @apply transition-all duration-300 ease-out;
+}
+
+.mobile-nav-panel {
+  @apply absolute right-0 top-0 h-full w-80 max-w-sm;
+  @apply bg-white/95 backdrop-blur-xl;
+  @apply border-l border-white/20;
+  @apply transform transition-transform duration-300 ease-out;
+  @apply translate-x-full;
+}
+
+.mobile-nav-panel.open {
+  @apply translate-x-0;
+}
+
+.mobile-nav-item {
+  @apply block w-full text-left px-6 py-4;
+  @apply text-lg font-medium text-gray-800;
+  @apply hover:bg-primary-50 hover:text-primary-700;
+  @apply transition-colors duration-200;
+  @apply border-b border-gray-100;
+}
+
+/* Hamburger Menu Animation */
+.hamburger-line {
+  @apply w-6 h-0.5 bg-current mb-1;
+  @apply transition-all duration-300 ease-out;
+  @apply origin-center;
+}
+
+.hamburger-open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Typography Optimization - R-005 */
+.mobile-text-base {
+  font-size: 16px; /* Prevents zoom on iOS */
+  line-height: 1.5;
+}
+
+.mobile-text-lg {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.mobile-heading {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .mobile-heading {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-heading {
+    font-size: 40px;
+  }
+}
+
+/* Mobile Form Optimization - R-007 */
+.mobile-form-input {
+  @apply form-touch w-full;
+  @apply bg-white/20 backdrop-blur-md;
+  @apply border border-white/30 rounded-lg;
+  @apply text-white placeholder-white/70;
+  @apply px-4 py-3;
+}
+
+.mobile-form-input:focus {
+  @apply border-primary-400 bg-white/30;
+  @apply ring-2 ring-primary-500/50;
+}
+
+.mobile-form-select {
+  @apply mobile-form-input;
+  @apply appearance-none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px 12px;
+  padding-right: 40px;
+}
+
+.mobile-form-textarea {
+  @apply mobile-form-input;
+  @apply resize-none;
+  min-height: 120px;
+}
+
+/* Mobile-specific input types */
+.mobile-tel-input {
+  @apply mobile-form-input;
+}
+
+.mobile-email-input {
+  @apply mobile-form-input;
+}
+
+/* Form validation states */
+.form-error {
+  @apply border-red-400 bg-red-50/20;
+}
+
+.form-success {
+  @apply border-green-400 bg-green-50/20;
+}
+
+.error-message {
+  @apply text-red-300 text-sm mt-1;
+  @apply animate-in slide-in-from-top-1 duration-200;
+}
+
+/* Mobile Service Cards - R-006 */
+.mobile-service-card {
+  @apply bg-white/10 backdrop-blur-md;
+  @apply border border-white/20 rounded-xl;
+  @apply p-4 transition-all duration-300;
+  @apply hover:bg-white/20 hover:border-white/30;
+  @apply active:scale-98;
+}
+
+.mobile-service-title {
+  @apply text-lg font-semibold text-white mb-2;
+  @apply line-clamp-2;
+}
+
+.mobile-service-description {
+  @apply text-sm text-white/80 mb-3;
+  @apply line-clamp-3;
+}
+
+.mobile-service-features {
+  @apply flex flex-wrap gap-1;
+}
+
+.mobile-service-feature {
+  @apply text-xs bg-white/20 text-white/90;
+  @apply px-2 py-1 rounded-full;
+}
+
+/* Mobile Contact Actions */
+.mobile-contact-action {
+  @apply btn-touch w-full;
+  @apply bg-gradient-to-r from-primary-500 to-primary-600;
+  @apply text-white font-semibold rounded-lg;
+  @apply shadow-lg hover:shadow-xl;
+  @apply transition-all duration-300;
+  @apply flex items-center justify-center space-x-2;
+}
+
+.mobile-contact-action:hover {
+  @apply from-primary-400 to-primary-500;
+  @apply transform -translate-y-1;
+}
+
+.mobile-contact-action:active {
+  @apply transform translate-y-0 scale-95;
+}
+
+/* Click-to-call and WhatsApp buttons */
+.mobile-call-button {
+  @apply mobile-contact-action;
+  @apply bg-gradient-to-r from-green-500 to-green-600;
+}
+
+.mobile-whatsapp-button {
+  @apply mobile-contact-action;
+  @apply bg-gradient-to-r from-green-600 to-green-700;
+}
+
+/* Mobile-specific utilities */
+.mobile-safe-area {
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.mobile-scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text selection on touch elements */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Mobile-optimized animations */
+@media (prefers-reduced-motion: reduce) {
+  .touch-target,
+  .btn-touch,
+  .nav-touch,
+  .form-touch,
+  .mobile-contact-action {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .mobile-form-input {
+    @apply border-2 border-gray-800;
+  }
+  
+  .mobile-contact-action {
+    @apply border-2 border-gray-800;
+  }
+}
+
+/* Dark mode support for mobile */
+@media (prefers-color-scheme: dark) {
+  .mobile-nav-panel {
+    @apply bg-gray-900/95;
+  }
+  
+  .mobile-nav-item {
+    @apply text-gray-100 border-gray-700;
+    @apply hover:bg-gray-800 hover:text-primary-300;
+  }
+}
+
+/* Focus indicators for keyboard navigation */
+.focus-visible {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* Skip links for accessibility */
+.skip-link {
+  @apply absolute -top-10 left-4;
+  @apply bg-primary-600 text-white px-4 py-2 rounded;
+  @apply focus:top-4 transition-all duration-200;
+  @apply z-50;
+}
