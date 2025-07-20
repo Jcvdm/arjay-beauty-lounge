@@ -93,8 +93,8 @@
 
 .mobile-nav-panel {
   @apply absolute right-0 top-0 h-full w-80 max-w-sm;
-  @apply bg-white backdrop-blur-xl;
-  @apply border-l border-gray-200 shadow-2xl;
+  @apply bg-white/95 backdrop-blur-xl;
+  @apply border-l border-cyan-200/50 shadow-2xl;
   @apply transform transition-transform duration-300 ease-out;
   @apply translate-x-full;
   @apply overflow-y-auto;
@@ -158,18 +158,19 @@
 .mobile-dropdown-button {
   @apply relative;
   @apply min-w-[80px];
-  @apply bg-white/80 backdrop-blur-md;
-  @apply border border-white/40;
+  @apply bg-white/90 backdrop-blur-md;
+  @apply border border-cyan-200/50;
   @apply shadow-lg;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.75) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(236, 254, 255, 0.8) 100%);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 .mobile-dropdown-button:hover {
-  @apply bg-white/90;
-  @apply border-white/40;
+  @apply bg-white/95;
+  @apply border-cyan-300/60;
   @apply shadow-xl;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(207, 250, 254, 0.6) 100%);
 }
 
 .mobile-dropdown-button[aria-expanded="true"] {
