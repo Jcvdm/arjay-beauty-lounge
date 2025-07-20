@@ -343,12 +343,21 @@
 
 /* Mobile Form Optimization - R-007 */
 .mobile-form-input {
-  @apply form-touch w-full;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  @apply w-full;
   @apply bg-white/95 backdrop-blur-md;
   @apply border border-gray-300 rounded-lg;
   @apply text-gray-800 placeholder-gray-500;
   @apply px-4 py-3;
   @apply shadow-sm;
+  @apply text-base; /* Prevents zoom on iOS */
+  @apply focus:ring-2 focus:ring-primary-500 focus:outline-none;
+  @apply transition-all duration-200;
 }
 
 .mobile-form-input:focus {
