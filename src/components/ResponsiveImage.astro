@@ -27,18 +27,32 @@ const {
 } = Astro.props;
 ---
 
-<Image
-  src={src}
-  alt={alt}
-  widths={[320, 480, 640, 768, 1024, 1280]}
-  sizes={sizes}
-  quality={quality}
-  format="webp"
-  fallbackFormat="jpg"
-  loading={priority ? "eager" : "lazy"}
-  decoding="async"
-  class={className}
-  style={aspectRatio !== "auto" ? `aspect-ratio: ${aspectRatio}` : ""}
-  width={width}
-  height={height}
-/>
+{width && height ? (
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    quality={quality}
+    format="webp"
+    fallbackFormat="jpg"
+    loading={priority ? "eager" : "lazy"}
+    decoding="async"
+    class={className}
+    style={aspectRatio !== "auto" ? `aspect-ratio: ${aspectRatio}` : ""}
+  />
+) : (
+  <Image
+    src={src}
+    alt={alt}
+    widths={[320, 480, 640, 768, 1024, 1280]}
+    sizes={sizes}
+    quality={quality}
+    format="webp"
+    fallbackFormat="jpg"
+    loading={priority ? "eager" : "lazy"}
+    decoding="async"
+    class={className}
+    style={aspectRatio !== "auto" ? `aspect-ratio: ${aspectRatio}` : ""}
+  />
+)}
