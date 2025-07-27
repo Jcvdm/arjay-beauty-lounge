@@ -10,7 +10,7 @@ const { title, description = "ARJAY Beauty Lounge - Professional Beauty Services
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="h-full">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -42,6 +42,20 @@ const { title, description = "ARJAY Beauty Lounge - Professional Beauty Services
 
 		<!-- Theme Color -->
 		<meta name="theme-color" content="#ec4899">
+
+		<!-- Snap Scrolling CSS -->
+		<style>
+			html {
+				scroll-behavior: auto;
+				scroll-snap-type: y mandatory;
+				height: 100%;
+			}
+			body {
+				height: 100vh;
+				overflow-y: auto;
+				scroll-snap-type: y mandatory;
+			}
+		</style>
 	</head>
 	<body class="font-sans text-neutral-800 bg-white antialiased">
 		<slot />
