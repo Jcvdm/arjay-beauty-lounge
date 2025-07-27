@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(claude mcp update:*)",
+      "Bash(claude mcp:*)"
+    ],
+    "deny": []
+  }
+}
