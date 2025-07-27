@@ -1,47 +1,71 @@
 ---
-// Real ARJAY Beauty Lounge Services
+// Real ARJAY Beauty Lounge Services with Enhanced Mobile UI
+import ResponsiveImage from './ResponsiveImage.astro';
+import servicesImage from '../assets/services/services-list.jpg';
+
 const services = [
   {
     title: "Nails (Acrylic)",
     description: "Professional acrylic nail extensions and nail art for stunning, long-lasting results.",
+    mobileDescription: "Expert nail extensions & custom art",
+    image: servicesImage,
     icon: "nail",
-    features: ["Acrylic Extensions", "Nail Art Design", "French Manicure", "Nail Repair", "Cuticle Care"]
+    features: ["Acrylic Extensions", "Nail Art Design", "French Manicure", "Nail Repair", "Cuticle Care"],
+    price: "From R250"
   },
   {
     title: "7in1 Hydrafacials (RF) & Skin Rejuvenation",
     description: "Advanced 7-in-1 hydrafacial treatment with radiofrequency for complete skin rejuvenation.",
+    mobileDescription: "Advanced hydrafacial with RF technology",
+    image: servicesImage,
     icon: "facial",
-    features: ["Deep Cleansing", "Exfoliation", "Extraction", "Hydration", "RF Skin Tightening", "LED Light Therapy", "Antioxidant Protection"]
+    features: ["Deep Cleansing", "Exfoliation", "Extraction", "Hydration", "RF Skin Tightening", "LED Light Therapy", "Antioxidant Protection"],
+    price: "From R450"
   },
   {
     title: "RF Laser Slimming",
     description: "Non-invasive radiofrequency laser treatment for body contouring and fat reduction.",
+    mobileDescription: "Non-invasive body contouring",
+    image: servicesImage,
     icon: "slimming",
-    features: ["Body Contouring", "Fat Reduction", "Skin Tightening", "Cellulite Treatment", "Non-Invasive"]
+    features: ["Body Contouring", "Fat Reduction", "Skin Tightening", "Cellulite Treatment", "Non-Invasive"],
+    price: "From R350"
   },
   {
     title: "Laser (Diode) Hair Removal",
     description: "Permanent hair reduction using advanced diode laser technology for smooth, hair-free skin.",
+    mobileDescription: "Permanent hair removal technology",
+    image: servicesImage,
     icon: "laser",
-    features: ["Permanent Hair Reduction", "All Skin Types", "Pain-Free Treatment", "Fast Results", "FDA Approved"]
+    features: ["Permanent Hair Reduction", "All Skin Types", "Pain-Free Treatment", "Fast Results", "FDA Approved"],
+    price: "From R200"
   },
   {
     title: "Laser Tattoo Removal",
     description: "Safe and effective laser tattoo removal using advanced technology for complete tattoo elimination.",
+    mobileDescription: "Professional tattoo removal",
+    image: servicesImage,
     icon: "tattoo",
-    features: ["All Tattoo Colors", "Minimal Scarring", "Professional Grade", "Multiple Sessions", "Aftercare Support"]
+    features: ["All Tattoo Colors", "Minimal Scarring", "Professional Grade", "Multiple Sessions", "Aftercare Support"],
+    price: "From R400"
   },
   {
     title: "Black Carbon/Diamond Facial",
     description: "Luxurious carbon laser facial treatment for deep pore cleansing and skin brightening.",
+    mobileDescription: "Luxury diamond facial treatment",
+    image: servicesImage,
     icon: "diamond",
-    features: ["Deep Pore Cleansing", "Skin Brightening", "Oil Control", "Blackhead Removal", "Instant Glow"]
+    features: ["Deep Pore Cleansing", "Skin Brightening", "Oil Control", "Blackhead Removal", "Instant Glow"],
+    price: "From R300"
   },
   {
     title: "Microneedling",
     description: "Advanced microneedling treatment to stimulate collagen production and improve skin texture.",
+    mobileDescription: "Collagen-boosting treatment",
+    image: servicesImage,
     icon: "microneedle",
-    features: ["Collagen Stimulation", "Scar Reduction", "Fine Line Treatment", "Skin Texture Improvement", "Natural Healing"]
+    features: ["Collagen Stimulation", "Scar Reduction", "Fine Line Treatment", "Skin Texture Improvement", "Natural Healing"],
+    price: "From R280"
   }
 ];
 
@@ -67,66 +91,57 @@ const services = [
 
 
     
-    <!-- Services List -->
-    <div class="max-w-4xl mx-auto space-y-4">
-      {services.map((service) => (
-        <div class="bg-white/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-cyan-200/50 hover:border-primary-300 group hover:bg-gradient-to-br hover:from-white hover:to-cyan-50/30">
-          <div class="flex items-center p-4">
-            <!-- Service Icon -->
-            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-primary-200 transition-colors">
-              {service.icon === "nail" && (
-                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3V1m0 20v-2m5-9h7l-3 9h-4V3h4l3 9z"/>
-                </svg>
-              )}
-              {service.icon === "facial" && (
-                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3a9 9 0 100 18 9 9 0 000-18zm-3 7a1 1 0 112 0 1 1 0 01-2 0zm6 0a1 1 0 112 0 1 1 0 01-2 0zm-3 5c-1.5 0-2.5-1-2.5-2h5c0 1-1 2-2.5 2z"/>
-                </svg>
-              )}
-              {service.icon === "slimming" && (
-                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              )}
-              {service.icon === "laser" && (
-                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                </svg>
-              )}
-              {service.icon === "tattoo" && (
-                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3V1m10 2a2 2 0 012 2v12a4 4 0 01-4 4"/>
-                </svg>
-              )}
-              {service.icon === "diamond" && (
-                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2l3.09 6.26L22 9l-5.91 5.91L18 22l-6-3.27L6 22l1.91-7.09L2 9l6.91-.74L12 2z"/>
-                </svg>
-              )}
-              {service.icon === "microneedle" && (
-                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
+    <!-- Enhanced Service Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {services.map((service, index) => (
+        <div class="mobile-service-card group cursor-pointer" 
+             data-service={service.title.toLowerCase().replace(/\s+/g, '-')}>
+          
+          <!-- Service Image -->
+          <div class="service-image-container mb-4">
+            <ResponsiveImage
+              src={service.image}
+              alt={`${service.title} - ARJAY Beauty Lounge`}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              quality={85}
+              class="mobile-service-image group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg"></div>
+          </div>
+
+          <!-- Service Content -->
+          <div class="service-content">
+            <h3 class="mobile-service-title">{service.title}</h3>
+            
+            <!-- Mobile-optimized description -->
+            <p class="mobile-service-description block md:hidden">
+              {service.mobileDescription}
+            </p>
+            <p class="mobile-service-description hidden md:block">
+              {service.description}
+            </p>
+
+            <!-- Service Features -->
+            <div class="mobile-service-features mb-4">
+              {service.features.slice(0, 3).map(feature => (
+                <span class="mobile-service-feature">{feature}</span>
+              ))}
+              {service.features.length > 3 && (
+                <span class="mobile-service-feature">+{service.features.length - 3} more</span>
               )}
             </div>
 
-            <!-- Service Content -->
-            <div class="flex-1">
-              <h3 class="text-lg font-serif font-semibold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">
-                {service.title}
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+            <!-- Service Price -->
+            {service.price && (
+              <div class="service-price text-primary-300 font-semibold text-sm mb-3">
+                {service.price}
+              </div>
+            )}
 
-            <!-- Book Now Button -->
-            <div class="flex-shrink-0 ml-4">
-              <button class="bg-primary text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
-                Book Now
-              </button>
-            </div>
+            <!-- CTA Button -->
+            <button class="service-cta-button w-full bg-white/20 hover:bg-white/30 text-white text-sm font-medium py-2 px-4 rounded-lg transition-all duration-300 border border-white/30" onclick="alert('Booking link will be available soon!')">
+              Learn More
+            </button>
           </div>
         </div>
       ))}

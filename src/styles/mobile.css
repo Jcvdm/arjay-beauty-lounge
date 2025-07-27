@@ -469,32 +469,63 @@
   @apply opacity-100 translate-y-0;
 }
 
-/* Mobile Service Cards - R-006 */
+/* Enhanced Mobile Service Cards - R-303 */
 .mobile-service-card {
   @apply bg-white/10 backdrop-blur-md;
   @apply border border-white/20 rounded-xl;
   @apply p-4 transition-all duration-300;
   @apply hover:bg-white/20 hover:border-white/30;
   @apply active:scale-98;
+  min-height: 320px; /* Increased for image */
+  display: flex;
+  flex-direction: column;
+}
+
+.service-image-container {
+  @apply relative overflow-hidden rounded-lg;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.mobile-service-image {
+  @apply w-full h-full object-cover;
+  @apply border border-white/30;
+}
+
+.service-content {
+  @apply flex-1 flex flex-col;
 }
 
 .mobile-service-title {
   @apply text-lg font-semibold text-white mb-2;
-  @apply line-clamp-2;
+  @apply line-clamp-1; /* Single line on mobile */
 }
 
 .mobile-service-description {
   @apply text-sm text-white/80 mb-3;
-  @apply line-clamp-3;
+  @apply line-clamp-2; /* Two lines on mobile */
+  flex-grow: 1;
 }
 
 .mobile-service-features {
-  @apply flex flex-wrap gap-1;
+  @apply flex flex-wrap gap-1 mb-3;
 }
 
 .mobile-service-feature {
   @apply text-xs bg-white/20 text-white/90;
   @apply px-2 py-1 rounded-full;
+  @apply border border-white/20;
+}
+
+.service-price {
+  @apply text-primary-300 font-semibold text-sm mb-3;
+  @apply bg-primary-900/30 px-2 py-1 rounded;
+  @apply border border-primary-400/30;
+}
+
+.service-cta-button {
+  @apply mt-auto; /* Push to bottom */
+  min-height: 36px;
 }
 
 /* Mobile Contact Actions */
@@ -702,5 +733,100 @@
 
   .mobile-dropdown-button span {
     @apply text-xs;
+  }
+}
+
+/* Phase 3 - Gallery and Image Optimization Styles */
+
+/* Gallery Component - Mobile Optimized */
+.gallery-item {
+  @apply transition-all duration-300;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  @apply shadow-xl;
+}
+
+.gallery-modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center;
+  @apply bg-black/50 backdrop-blur-sm;
+  @apply opacity-0 pointer-events-none;
+  @apply transition-all duration-300;
+}
+
+.gallery-modal.show {
+  @apply opacity-100 pointer-events-auto;
+}
+
+.gallery-modal-content {
+  @apply bg-white/95 backdrop-blur-lg;
+  @apply rounded-xl shadow-2xl;
+  @apply max-w-4xl mx-4 p-6;
+  @apply transform scale-95 transition-transform duration-300;
+}
+
+.gallery-modal.show .gallery-modal-content {
+  @apply scale-100;
+}
+
+/* Service Detail Modal (Progressive Disclosure) */
+.service-modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center;
+  @apply bg-black/50 backdrop-blur-sm;
+  @apply opacity-0 pointer-events-none;
+  @apply transition-all duration-300;
+}
+
+.service-modal.show {
+  @apply opacity-100 pointer-events-auto;
+}
+
+.service-modal-content {
+  @apply bg-white/95 backdrop-blur-lg;
+  @apply rounded-xl shadow-2xl;
+  @apply max-w-md mx-4 p-6;
+  @apply transform scale-95 transition-transform duration-300;
+}
+
+.service-modal.show .service-modal-content {
+  @apply scale-100;
+}
+
+/* Responsive adjustments for mobile service cards */
+@media (max-width: 640px) {
+  .mobile-service-card {
+    min-height: 280px;
+  }
+  
+  .service-image-container {
+    height: 100px;
+  }
+
+  .gallery-item .h-64 {
+    height: 200px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mobile-service-card {
+    min-height: 300px;
+  }
+  
+  .service-image-container {
+    height: 110px;
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1024px) {
+  .mobile-service-card:hover {
+    transform: translateY(-4px) scale(1.05);
+    @apply shadow-2xl;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-8px);
   }
 }

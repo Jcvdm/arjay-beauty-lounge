@@ -1,0 +1,112 @@
+---
+// Gallery component for ARJAY Beauty Lounge portfolio
+import ResponsiveImage from './ResponsiveImage.astro';
+
+// Import gallery images from Photos directory
+import galleryImage1 from '../assets/gallery/images.jpg';
+import galleryImage2 from '../assets/gallery/images(1).jpg';
+import galleryImage3 from '../assets/gallery/images(2).jpg';
+
+const galleryItems = [
+  {
+    image: galleryImage1,
+    alt: "ARJAY Beauty Lounge - Professional Results",
+    category: "Nails"
+  },
+  {
+    image: galleryImage2, 
+    alt: "ARJAY Beauty Lounge - Beauty Transformation",
+    category: "Facial"
+  },
+  {
+    image: galleryImage3,
+    alt: "ARJAY Beauty Lounge - Expert Care",
+    category: "Treatment"
+  }
+];
+---
+
+<section id="gallery" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/90 backdrop-blur-sm border border-cyan-200/60 text-primary-700 text-sm font-medium mb-8 shadow-lg">
+        <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
+        Our Work
+      </div>
+      <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800 mb-4">
+        Beautiful Results
+      </h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+        Discover the transformative power of professional beauty treatments. 
+        See real results from our satisfied clients.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      {galleryItems.map((item, index) => (
+        <div class="gallery-item group cursor-pointer" data-index={index}>
+          <div class="relative overflow-hidden rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-white/30 transition-all duration-300">
+            <ResponsiveImage
+              src={item.image}
+              alt={item.alt}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              quality={85}
+              class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            <!-- Category Badge -->
+            <div class="absolute top-3 left-3 bg-primary-600/90 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded-full">
+              {item.category}
+            </div>
+            
+            <!-- View Details Overlay -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <button class="bg-white/90 backdrop-blur-sm text-gray-800 font-medium py-2 px-4 rounded-lg shadow-lg hover:bg-white transition-colors duration-200">
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-item {
+    @apply transition-all duration-300;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-4px);
+  }
+  
+  @media (max-width: 640px) {
+    .gallery-item .h-64 {
+      height: 200px;
+    }
+  }
+</style>
+
+<script>
+  // Gallery modal functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const index = parseInt(this.dataset.index);
+        openGalleryModal(index);
+      });
+    });
+  });
+
+  function openGalleryModal(index) {
+    // Implementation for full-screen image modal
+    console.log('Opening gallery modal for index:', index);
+    // TODO: Implement full-screen modal with navigation
+  }
+</script>

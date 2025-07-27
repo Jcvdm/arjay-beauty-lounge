@@ -1,0 +1,44 @@
+---
+// ResponsiveImage.astro - Responsive image component with WebP support and lazy loading
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  priority?: boolean;
+  sizes?: string;
+  class?: string;
+  quality?: number;
+  aspectRatio?: string;
+  width?: number;
+  height?: number;
+}
+
+const {
+  src,
+  alt,
+  priority = false,
+  sizes = "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw",
+  class: className = "",
+  quality = 85,
+  aspectRatio = "auto",
+  width,
+  height
+} = Astro.props;
+---
+
+<Image
+  src={src}
+  alt={alt}
+  widths={[320, 480, 640, 768, 1024, 1280]}
+  sizes={sizes}
+  quality={quality}
+  format="webp"
+  fallbackFormat="jpg"
+  loading={priority ? "eager" : "lazy"}
+  decoding="async"
+  class={className}
+  style={aspectRatio !== "auto" ? `aspect-ratio: ${aspectRatio}` : ""}
+  width={width}
+  height={height}
+/>
