@@ -1,0 +1,36 @@
+---
+// OptimizedLogo.astro - Optimized logo component with multiple sizes
+import { Image } from 'astro:assets';
+import logoImage from '../assets/branding/arjay-logo.jpg';
+
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { size = 'md', class: className = '' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'h-8 w-8',
+  md: 'h-12 w-12',
+  lg: 'h-16 w-16'
+};
+
+const logoSizes = {
+  sm: 32,
+  md: 48, 
+  lg: 64
+};
+---
+
+<Image
+  src={logoImage}
+  alt="ARJAY Beauty Lounge - Professional Beauty Services"
+  width={logoSizes[size]}
+  height={logoSizes[size]}
+  quality={95}
+  format="webp"
+  fallbackFormat="jpg"
+  loading="eager"
+  class={`${sizeClasses[size]} rounded-xl object-cover shadow-lg border-2 border-primary-200 ${className}`}
+/>

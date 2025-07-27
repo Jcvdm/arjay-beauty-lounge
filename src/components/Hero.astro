@@ -1,27 +1,51 @@
 ---
 // Modern Hero section for ARJAY Beauty Lounge with Background Slideshow
+import ResponsiveImage from './ResponsiveImage.astro';
+import heroImage1 from '../assets/hero/beauty-bg-1.jpg';
+import heroImage2 from '../assets/hero/beauty-bg-2.jpg';
+import heroImage3 from '../assets/hero/beauty-bg-3.jpg';
 ---
 
-<section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden snap-start">
   <!-- Fixed Background Slideshow -->
   <div class="fixed inset-0 z-0">
     <div class="slideshow-container">
       <!-- Slide 1 -->
       <div class="slide active">
-        <img src="/beauty-bg-1.jpg" alt="ARJAY Beauty Lounge - Professional Beauty Services" class="w-full h-full object-cover fixed-bg grayscale" />
+        <ResponsiveImage 
+          src={heroImage1}
+          alt="ARJAY Beauty Lounge - Professional Beauty Services"
+          priority={true}
+          sizes="100vw"
+          quality={85}
+          class="w-full h-full object-cover fixed-bg"
+        />
       </div>
       <!-- Slide 2 -->
       <div class="slide">
-        <img src="/beauty-bg-2.jpg" alt="ARJAY Beauty Lounge - Luxury Treatments" class="w-full h-full object-cover fixed-bg grayscale" />
+        <ResponsiveImage 
+          src={heroImage2}
+          alt="ARJAY Beauty Lounge - Luxury Treatments"
+          priority={false}
+          sizes="100vw"
+          quality={85}
+          class="w-full h-full object-cover fixed-bg"
+        />
       </div>
       <!-- Slide 3 -->
       <div class="slide">
-        <img src="/beauty-bg-3.jpg" alt="ARJAY Beauty Lounge - Expert Care" class="w-full h-full object-cover fixed-bg grayscale" />
+        <ResponsiveImage 
+          src={heroImage3}
+          alt="ARJAY Beauty Lounge - Expert Care"
+          priority={false}
+          sizes="100vw"
+          quality={85}
+          class="w-full h-full object-cover fixed-bg"
+        />
       </div>
     </div>
-    <!-- NEUTRAL LIGHT OVERLAY for entire background -->
-    <div class="absolute inset-0 bg-white/50"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-white/40 to-white/60"></div>
+    <!-- SUBTLE OVERLAY for better text readability -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30"></div>
   </div>
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -29,25 +53,25 @@
       <!-- Content -->
       <div class="text-center animate-on-scroll">
         <!-- Badge -->
-        <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/90 backdrop-blur-sm border border-cyan-200/60 text-primary-700 text-sm font-medium mb-8 shadow-lg">
+        <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/95 backdrop-blur-sm border border-white/20 text-primary-800 text-sm font-medium mb-8 shadow-lg">
           <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
           Premium Beauty Services
         </div>
 
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-800 mb-8 leading-tight">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight drop-shadow-lg">
           Transform Your
-          <span class="block bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 bg-clip-text text-transparent">
+          <span class="block bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent">
             Natural Beauty
           </span>
         </h1>
 
-        <p class="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
           Experience luxury beauty treatments in our serene sanctuary. Our expert team combines
           artistry with the finest products to reveal your most radiant self.
         </p>
 
         <!-- Contact Information -->
-        <div class="bg-white/90 backdrop-blur-md rounded-3xl p-8 mb-12 border border-cyan-200/50 shadow-2xl max-w-lg mx-auto hover:bg-gradient-to-br hover:from-white hover:to-cyan-50/20">
+        <div class="bg-white/95 backdrop-blur-md rounded-3xl p-8 mb-12 border border-white/20 shadow-2xl max-w-lg mx-auto">
           <div class="flex items-center justify-center space-x-6">
             <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center shadow-lg">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,11 +79,11 @@
               </svg>
             </div>
             <div class="text-center">
-              <p class="text-gray-700 mb-2 text-lg">Contact Riana</p>
-              <a href="tel:0763709400" class="text-3xl font-bold text-gray-800 hover:text-primary-600 transition-colors block">
+              <p class="text-primary-700 mb-2 text-lg">Contact Riana</p>
+              <a href="tel:0763709400" class="text-3xl font-bold text-primary-800 hover:text-primary-600 transition-colors block">
                 076 370 9400
               </a>
-              <p class="text-gray-600 mt-2">WhatsApp & Calls Welcome</p>
+              <p class="text-primary-600 mt-2">WhatsApp & Calls Welcome</p>
             </div>
           </div>
         </div>
@@ -72,7 +96,7 @@
             </svg>
             <span>Call Now</span>
           </a>
-          <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="bg-white/90 hover:bg-gradient-to-br hover:from-white hover:to-cyan-50/30 text-gray-800 border-2 border-cyan-200/50 hover:border-primary-400 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center group backdrop-blur-sm">
+          <button onclick="document.getElementById('services').scrollIntoView({behavior: 'auto'})" class="bg-white/95 hover:bg-white text-primary-800 border-2 border-white/20 hover:border-primary-400 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center group backdrop-blur-sm">
             <span>View Services</span>
             <svg class="w-6 h-6 ml-3 group-hover:translate-y-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -142,21 +166,13 @@
     z-index: 10;
   }
 
-  /* Add neutral light overlay to all sections except Hero itself */
+  /* Add subtle overlay to all sections except Hero itself */
   section:not(#home)::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.70);
+    background: rgba(255, 255, 255, 0.85);
     z-index: 1;
-  }
-
-  section:not(#home)::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.75));
-    z-index: 2;
   }
 
   /* Ensure ALL content is above overlays */

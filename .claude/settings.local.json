@@ -5,7 +5,14 @@
       "WebFetch(domain:github.com)",
       "Bash(claude mcp update:*)",
       "Bash(claude mcp:*)",
-      "Bash(git merge:*)"
+      "Bash(git checkout:*)",
+      "Bash(git push:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git merge:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }
