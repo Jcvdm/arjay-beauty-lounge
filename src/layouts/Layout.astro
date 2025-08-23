@@ -26,6 +26,9 @@ const { title, description = "ARJAY Beauty Lounge - Professional Beauty Services
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
+		<!-- Preload critical logo to improve LCP -->
+		<link rel="preload" as="image" href="/logo.svg" type="image/svg+xml" />
+
 		<!-- Preload critical fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
