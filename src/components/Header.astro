@@ -1,5 +1,6 @@
 ---
 // Modern Header component for ARJAY Beauty Lounge
+import { bookingUrl } from '../config';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-cyan-200/50 w-full">
@@ -31,12 +32,12 @@
           <a href="#about" class="nav-link">About</a>
           <a href="#contact" class="nav-link">Contact</a>
           <div class="ml-4">
-            <button class="btn-primary text-sm" onclick="alert('Booking link will be available soon!')">
+            <a href={bookingUrl} class="btn-primary text-sm" target="_blank" rel="noopener noreferrer">
               <span>Book Appointment</span>
               <svg class="w-4 h-4 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -119,7 +120,8 @@
 
         <!-- Prominent Book Now Button -->
         <a
-          href="#contact"
+          href={bookingUrl}
+          target="_blank" rel="noopener noreferrer"
           class="mobile-book-button btn-touch touch-feedback bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:from-primary-400 hover:to-primary-500 transition-all duration-200"
           aria-label="Book appointment now"
         >
@@ -199,12 +201,12 @@
           <div class="px-6 pt-6 border-t border-gray-200">
             <div class="space-y-3">
               <!-- Book Appointment Button -->
-              <button class="mobile-contact-action touch-feedback" onclick="alert('Booking link will be available soon!')">
+              <a href={bookingUrl} class="mobile-contact-action touch-feedback" target="_blank" rel="noopener noreferrer">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <span>Book Appointment</span>
-              </button>
+              </a>
 
               <!-- Quick Call Button -->
               <a href="tel:+27763709400" class="mobile-call-button touch-feedback">

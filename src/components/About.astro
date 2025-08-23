@@ -1,5 +1,6 @@
 ---
 // About section for ARJAY Beauty Lounge
+import { bookingUrl } from '../config';
 ---
 
 <section id="about" class="py-20 snap-start min-h-screen flex flex-col justify-center">
@@ -83,12 +84,12 @@
         </div>
 
         <!-- CTA -->
-        <button class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center group" onclick="alert('Booking link will be available soon!')">
+        <a href={bookingUrl} class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center group" target="_blank" rel="noopener noreferrer">
           <span>Book Your Appointment</span>
           <svg class="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
-        </button>
+        </a>
       </div>
 
       <!-- Image Gallery -->

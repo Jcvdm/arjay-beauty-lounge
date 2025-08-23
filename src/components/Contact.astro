@@ -1,5 +1,6 @@
 ---
 // Contact section for ARJAY Beauty Lounge
+import { bookingUrl } from '../config';
 ---
 
 <section id="contact" class="py-20 snap-start min-h-screen flex flex-col justify-center">
@@ -112,15 +113,13 @@
         
         <!-- Book Appointment Button -->
         <div class="text-center">
-          <button
-            class="mobile-contact-action touch-feedback focus-visible"
-            onclick="alert('Booking link will be available soon!')"
-          >
+          <a href={bookingUrl}
+            class="mobile-contact-action touch-feedback focus-visible" target="_blank" rel="noopener noreferrer">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a1 1 0 011-1h6a1 1 0 011 1v4m-9 8h10a2 2 0 002-2V9a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" />
             </svg>
             <span>✨ Book Appointment</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
