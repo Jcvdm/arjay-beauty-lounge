@@ -24,8 +24,6 @@ import { portfolio } from '../data/portfolio';
     <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
       {portfolio.map((it) => (
         <a href={it.full}
-           data-pswp-width={it.width}
-           data-pswp-height={it.height}
            aria-label={it.alt}
            class="contents">
           <img src={it.thumb}
