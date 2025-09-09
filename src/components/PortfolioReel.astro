@@ -4,8 +4,8 @@ import 'photoswipe/style.css';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import { portfolio } from '../data/portfolio';
 
-// Limit to first 12 items for the reel
-const reelItems = portfolio.slice(0, 12);
+// Limit to first 10 items for a tighter reel
+const reelItems = portfolio.slice(0, 10);
 ---
 
 <div class="relative z-20">
@@ -21,7 +21,7 @@ const reelItems = portfolio.slice(0, 12);
               decoding="async"
               width="160"
               height="120"
-              class="h-24 w-32 md:h-28 md:w-40 object-cover rounded-xl border border-primary-200/40 bg-white/60 shadow-sm"
+              class="h-20 w-32 md:h-24 md:w-40 object-cover rounded-xl border border-primary-200/40 bg-white/60 shadow-sm"
             />
           </a>
         ))}
@@ -36,14 +36,45 @@ const reelItems = portfolio.slice(0, 12);
 </style>
 
 <script>
-  // Initialize PhotoSwipe for the reel after page load
+  // Initialize PhotoSwipe and lightweight auto-scroll
   document.addEventListener('astro:page-load', () => {
+    const gallery = document.getElementById('reel-gallery');
+
+    // PhotoSwipe
     const lb = new PhotoSwipeLightbox({
       gallery: '#reel-gallery',
       children: 'a',
       pswpModule: () => import('photoswipe')
     });
     lb.init();
+
+    // Auto-scroll (rotate) behavior
+    if (gallery) {
+      let paused = false;
+      let lastX = 0;
+      const step = 220; // roughly one card including gap
+      const every = 2500; // ms
+
+      const tick = () => {
+        if (paused) return;
+        const max = gallery.scrollWidth - gallery.clientWidth;
+        const next = gallery.scrollLeft + step;
+        if (next >= max - 4) {
+          gallery.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          gallery.scrollBy({ left: step, behavior: 'smooth' });
+        }
+      };
+
+      const id = setInterval(tick, every);
+      gallery.addEventListener('mouseenter', () => { paused = true; });
+      gallery.addEventListener('mouseleave', () => { paused = false; });
+      gallery.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+      gallery.addEventListener('touchend', () => { paused = false; }, { passive: true });
+
+      // Clean up when navigating
+      document.addEventListener('astro:before-swap', () => clearInterval(id));
+    }
   });
 </script>
 

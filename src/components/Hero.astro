@@ -1,6 +1,8 @@
 ---
 // Modern Hero section for ARJAY Beauty Lounge with Background Slideshow
 
+import PortfolioReel from './PortfolioReel.astro';
+
 const heroSlides = [
   '/gallery/IMG_20250827_124035.jpg',
   '/gallery/IMG_20250827_131157.jpg',
@@ -44,6 +46,12 @@ const heroSlides = [
           <span class="block bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent">
             Natural Beauty
           </span>
+
+        <!-- Featured Portfolio Reel (10 items) -->
+        <div class="mt-4 mb-8">
+          <PortfolioReel />
+        </div>
+
         </h1>
 
         <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
