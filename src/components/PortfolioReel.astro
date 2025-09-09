@@ -1,0 +1,49 @@
+---
+// Horizontal reel of portfolio images with PhotoSwipe lightbox
+import 'photoswipe/style.css';
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import { portfolio } from '../data/portfolio';
+
+// Limit to first 12 items for the reel
+const reelItems = portfolio.slice(0, 12);
+---
+
+<div class="relative z-20">
+  <div class="pointer-events-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white/80 backdrop-blur-md border border-cyan-200/50 rounded-2xl shadow-lg p-3">
+      <div id="reel-gallery" class="flex gap-3 overflow-x-auto no-scrollbar snap-x">
+        {reelItems.map((it) => (
+          <a href={it.full} aria-label={it.alt} class="shrink-0 snap-start">
+            <img
+              src={it.thumb}
+              alt={it.alt}
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="120"
+              class="h-24 w-32 md:h-28 md:w-40 object-cover rounded-xl border border-primary-200/40 bg-white/60 shadow-sm"
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  // Initialize PhotoSwipe for the reel after page load
+  document.addEventListener('astro:page-load', () => {
+    const lb = new PhotoSwipeLightbox({
+      gallery: '#reel-gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe')
+    });
+    lb.init();
+  });
+</script>
+

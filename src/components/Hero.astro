@@ -1,5 +1,7 @@
 ---
 // Modern Hero section for ARJAY Beauty Lounge with Background Slideshow
+import PortfolioReel from './PortfolioReel.astro';
+
 const heroSlides = [
   '/gallery/IMG_20250827_124035.jpg',
   '/gallery/IMG_20250827_131157.jpg',
@@ -28,6 +30,11 @@ const heroSlides = [
     <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30"></div>
   </div>
 
+  <!-- Top Reel of Portfolio Images (below header, above hero content) -->
+  <div class="absolute top-20 left-0 right-0 z-20">
+    <PortfolioReel />
+  </div>
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
     <div class="min-h-screen flex items-center justify-center py-20">
       <!-- Content -->
@@ -36,6 +43,12 @@ const heroSlides = [
         <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/95 backdrop-blur-sm border border-white/20 text-primary-800 text-sm font-medium mb-8 shadow-lg">
           <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
           Premium Beauty Services
+        </div>
+
+
+        <!-- Portfolio Reel (just below header badge) -->
+        <div class="mt-4 mb-8">
+          <PortfolioReel />
         </div>
 
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight drop-shadow-lg">
