@@ -1,3 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import url from 'node:url';
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const root = path.resolve(__dirname, '..', '..');
+const thumbsDir = path.join(root, 'public', 'gallery', 'thumbs');
+
 export type PortfolioItem = {
   full: string; // URL to full-size image in public/
   thumb: string; // Fallback thumbnail (original file)
@@ -57,17 +65,17 @@ const galleryFiles = [
 export const portfolio: PortfolioItem[] = galleryFiles.map((name) => {
   const full = `/gallery/${name}`;
   const base = name.replace(/\.[^.]+$/, '');
-  const thumbWebp = `/gallery/thumbs/${base}.webp`;
-  const thumbWebp2x = `/gallery/thumbs/${base}@2x.webp`;
-  const thumbAvif = `/gallery/thumbs/${base}.avif`;
-  const thumbAvif2x = `/gallery/thumbs/${base}@2x.avif`;
+  const hasWebp = fs.existsSync(path.join(thumbsDir, `${base}.webp`));
+  const hasWebp2x = fs.existsSync(path.join(thumbsDir, `${base}@2x.webp`));
+  const hasAvif = fs.existsSync(path.join(thumbsDir, `${base}.avif`));
+  const hasAvif2x = fs.existsSync(path.join(thumbsDir, `${base}@2x.avif`));
   return {
     full,
     thumb: full,
-    thumbWebp,
-    thumbWebp2x,
-    thumbAvif,
-    thumbAvif2x,
+    thumbWebp: hasWebp ? `/gallery/thumbs/${base}.webp` : undefined,
+    thumbWebp2x: hasWebp2x ? `/gallery/thumbs/${base}@2x.webp` : undefined,
+    thumbAvif: hasAvif ? `/gallery/thumbs/${base}.avif` : undefined,
+    thumbAvif2x: hasAvif2x ? `/gallery/thumbs/${base}@2x.avif` : undefined,
     alt: 'Portfolio photo',
-  } as const;
+  };
 });

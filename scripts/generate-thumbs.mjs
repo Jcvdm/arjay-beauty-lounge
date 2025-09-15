@@ -52,6 +52,38 @@ async function genFor(file) {
   console.log('✓', file, '-> thumbs/', `${base}.{webp,avif} and @2x variants`);
 }
 
+async function fileExists(p) {
+  try { await fs.access(p); return true; } catch { return false; }
+}
+
+async function writeManifest() {
+  const entries = await listImages(galleryDir);
+  const manifest = {};
+  for (const file of entries) {
+    const base = file.replace(/\.[^.]+$/, '');
+    const paths = {
+      webp: path.join(thumbsDir, `${base}.webp`),
+      webp2x: path.join(thumbsDir, `${base}@2x.webp`),
+      avif: path.join(thumbsDir, `${base}.avif`),
+      avif2x: path.join(thumbsDir, `${base}@2x.avif`),
+    };
+    manifest[base] = {
+      webp: await fileExists(paths.webp),
+      webp2x: await fileExists(paths.webp2x),
+      avif: await fileExists(paths.avif),
+      avif2x: await fileExists(paths.avif2x),
+    };
+  }
+  const outPath = path.join(root, 'src', 'data', 'thumbs-manifest.json');
+  await ensureDir(path.dirname(outPath));
+  try {
+    await fs.writeFile(outPath, JSON.stringify(manifest, null, 2));
+    console.log('Wrote manifest to', outPath, 'with', Object.keys(manifest).length, 'entries');
+  } catch (e) {
+    console.error('Error writing manifest to', outPath, e);
+  }
+}
+
 async function main() {
   await ensureDir(thumbsDir);
   const files = await listImages(galleryDir);
@@ -67,6 +99,8 @@ async function main() {
       console.error('Failed for', f, err.message);
     }
   }
+
+  await writeManifest();
 }
 
 main().catch(err => {
