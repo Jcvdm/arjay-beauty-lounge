@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gen:thumbs": "node scripts/generate-thumbs.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
@@ -26,6 +27,7 @@
     "@types/photoswipe": "^4.1.6",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.4",
+    "sharp": "^0.34.3",
     "tailwindcss": "^4.1.8"
   }
 }

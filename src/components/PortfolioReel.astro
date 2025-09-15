@@ -1,7 +1,6 @@
 ---
 // Horizontal reel of portfolio images with PhotoSwipe lightbox
 import 'photoswipe/style.css';
-import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import { portfolio } from '../data/portfolio';
 
 // Limit to first 10 items for a tighter reel
@@ -11,18 +10,26 @@ const reelItems = portfolio.slice(0, 10);
 <div class="relative z-20">
   <div class="pointer-events-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="bg-white/80 backdrop-blur-md border border-cyan-200/50 rounded-2xl shadow-lg p-3">
-      <div id="reel-gallery" class="flex gap-3 overflow-x-auto no-scrollbar snap-x">
+      <div id="reel-gallery" class="flex flex-nowrap gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory">
         {reelItems.map((it) => (
           <a href={it.full} aria-label={it.alt} class="shrink-0 snap-start">
-            <img
-              src={it.thumb}
-              alt={it.alt}
-              loading="lazy"
-              decoding="async"
-              width="160"
-              height="120"
-              class="h-20 w-32 md:h-24 md:w-40 object-cover rounded-xl border border-primary-200/40 bg-white/60 shadow-sm"
-            />
+            <picture>
+              {it.thumbAvif && (
+                <source type="image/avif" srcset={`${it.thumbAvif} 1x${it.thumbAvif2x ? ", " + it.thumbAvif2x + " 2x" : ''}`} />
+              )}
+              {it.thumbWebp && (
+                <source type="image/webp" srcset={`${it.thumbWebp} 1x${it.thumbWebp2x ? ", " + it.thumbWebp2x + " 2x" : ''}`} />
+              )}
+              <img
+                src={it.thumb}
+                alt={it.alt}
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="120"
+                class="h-28 w-44 md:h-32 md:w-52 object-cover rounded-2xl border border-primary-200/40 bg-white/60 shadow-sm"
+              />
+            </picture>
           </a>
         ))}
       </div>
@@ -37,10 +44,11 @@ const reelItems = portfolio.slice(0, 10);
 
 <script>
   // Initialize PhotoSwipe and lightweight auto-scroll
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener('astro:page-load', async () => {
     const gallery = document.getElementById('reel-gallery');
 
-    // PhotoSwipe
+    // PhotoSwipe (dynamic import for client-only)
+    const { default: PhotoSwipeLightbox } = await import('photoswipe/lightbox');
     const lb = new PhotoSwipeLightbox({
       gallery: '#reel-gallery',
       children: 'a',
@@ -51,9 +59,8 @@ const reelItems = portfolio.slice(0, 10);
     // Auto-scroll (rotate) behavior
     if (gallery) {
       let paused = false;
-      let lastX = 0;
-      const step = 220; // roughly one card including gap
-      const every = 2500; // ms
+      const step = 300; // roughly one larger card including gap
+      const every = 1200; // ms (faster)
 
       const tick = () => {
         if (paused) return;

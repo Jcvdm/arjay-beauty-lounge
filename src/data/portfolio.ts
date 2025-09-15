@@ -1,6 +1,10 @@
 export type PortfolioItem = {
   full: string; // URL to full-size image in public/
-  thumb: string; // URL to thumbnail (can be same as full for now)
+  thumb: string; // Fallback thumbnail (original file)
+  thumbWebp?: string; // WebP thumbnail @1x (generated)
+  thumbWebp2x?: string; // WebP thumbnail @2x (generated)
+  thumbAvif?: string; // AVIF thumbnail @1x (generated)
+  thumbAvif2x?: string; // AVIF thumbnail @2x (generated)
   alt: string;
   width?: number;
   height?: number;
@@ -50,8 +54,20 @@ const galleryFiles = [
   'IMG_20250827_132156.jpg',
 ];
 
-export const portfolio: PortfolioItem[] = galleryFiles.map((name) => ({
-  full: `/gallery/${name}`,
-  thumb: `/gallery/${name}`,
-  alt: 'Portfolio photo',
-}));
+export const portfolio: PortfolioItem[] = galleryFiles.map((name) => {
+  const full = `/gallery/${name}`;
+  const base = name.replace(/\.[^.]+$/, '');
+  const thumbWebp = `/gallery/thumbs/${base}.webp`;
+  const thumbWebp2x = `/gallery/thumbs/${base}@2x.webp`;
+  const thumbAvif = `/gallery/thumbs/${base}.avif`;
+  const thumbAvif2x = `/gallery/thumbs/${base}@2x.avif`;
+  return {
+    full,
+    thumb: full,
+    thumbWebp,
+    thumbWebp2x,
+    thumbAvif,
+    thumbAvif2x,
+    alt: 'Portfolio photo',
+  } as const;
+});

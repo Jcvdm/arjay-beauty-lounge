@@ -26,11 +26,19 @@ import { portfolio } from '../data/portfolio';
         <a href={it.full}
            aria-label={it.alt}
            class="contents">
-          <img src={it.thumb}
-               alt={it.alt}
-               width="300" height="400"
-               loading="lazy" decoding="async"
-               class="w-full h-40 md:h-48 object-cover rounded-2xl shadow-sm border border-primary-200/40 bg-white/60" />
+          <picture>
+            {it.thumbAvif && (
+              <source type="image/avif" srcset={`${it.thumbAvif} 1x${it.thumbAvif2x ? ", " + it.thumbAvif2x + " 2x" : ''}`} />
+            )}
+            {it.thumbWebp && (
+              <source type="image/webp" srcset={`${it.thumbWebp} 1x${it.thumbWebp2x ? ", " + it.thumbWebp2x + " 2x" : ''}`} />
+            )}
+            <img src={it.thumb}
+                 alt={it.alt}
+                 width="300" height="400"
+                 loading="lazy" decoding="async"
+                 class="w-full h-40 md:h-48 object-cover rounded-2xl shadow-sm border border-primary-200/40 bg-white/60" />
+          </picture>
         </a>
       ))}
     </div>
