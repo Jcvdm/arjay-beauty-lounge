@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Portfolio from '../components/Portfolio.astro';
+---
+
+<Layout title="Portfolio | ARJAY Beauty Lounge" description="View our portfolio of recent work and beauty transformations.">
+  <Header />
+  <main>
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/90 backdrop-blur-sm border border-cyan-200/60 text-primary-700 text-sm font-medium mb-6 shadow-lg">
+            <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
+            Full Portfolio
+          </div>
+          <h1 class="text-3xl md:text-4xl font-serif font-bold text-gray-800 mb-3">Our Recent <span class="text-primary-600">Work</span></h1>
+          <p class="text-base text-gray-700 max-w-2xl mx-auto">Tap any photo to view larger in the gallery.</p>
+        </div>
+        <Portfolio />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+

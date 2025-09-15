@@ -1,9 +1,13 @@
 ---
 // Modern Hero section for ARJAY Beauty Lounge with Background Slideshow
-import ResponsiveImage from './ResponsiveImage.astro';
-import heroImage1 from '../assets/hero/beauty-bg-1.jpg';
-import heroImage2 from '../assets/hero/beauty-bg-2.jpg';
-import heroImage3 from '../assets/hero/beauty-bg-3.jpg';
+
+import PortfolioReel from './PortfolioReel.astro';
+
+const heroSlides = [
+  '/gallery/IMG_20250827_124035.jpg',
+  '/gallery/IMG_20250827_131157.jpg',
+  '/gallery/IMG_20250827_131903.jpg'
+];
 ---
 
 <section id="home" class="relative min-h-screen flex items-center overflow-hidden snap-start">
@@ -12,36 +16,15 @@ import heroImage3 from '../assets/hero/beauty-bg-3.jpg';
     <div class="slideshow-container">
       <!-- Slide 1 -->
       <div class="slide active">
-        <ResponsiveImage 
-          src={heroImage1}
-          alt="ARJAY Beauty Lounge - Professional Beauty Services"
-          priority={true}
-          sizes="100vw"
-          quality={85}
-          class="w-full h-full object-cover fixed-bg"
-        />
+        <img src={heroSlides[0]} alt="ARJAY Beauty Lounge - Portfolio Hero 1" fetchpriority="high" loading="eager" decoding="async" class="w-full h-full object-cover fixed-bg" />
       </div>
       <!-- Slide 2 -->
       <div class="slide">
-        <ResponsiveImage 
-          src={heroImage2}
-          alt="ARJAY Beauty Lounge - Luxury Treatments"
-          priority={false}
-          sizes="100vw"
-          quality={85}
-          class="w-full h-full object-cover fixed-bg"
-        />
+        <img src={heroSlides[1]} alt="ARJAY Beauty Lounge - Portfolio Hero 2" loading="lazy" decoding="async" class="w-full h-full object-cover fixed-bg" />
       </div>
       <!-- Slide 3 -->
       <div class="slide">
-        <ResponsiveImage 
-          src={heroImage3}
-          alt="ARJAY Beauty Lounge - Expert Care"
-          priority={false}
-          sizes="100vw"
-          quality={85}
-          class="w-full h-full object-cover fixed-bg"
-        />
+        <img src={heroSlides[2]} alt="ARJAY Beauty Lounge - Portfolio Hero 3" loading="lazy" decoding="async" class="w-full h-full object-cover fixed-bg" />
       </div>
     </div>
     <!-- SUBTLE OVERLAY for better text readability -->
@@ -63,6 +46,17 @@ import heroImage3 from '../assets/hero/beauty-bg-3.jpg';
           <span class="block bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent">
             Natural Beauty
           </span>
+
+        <!-- Featured Portfolio Reel (10 items) -->
+        <div class="mt-4 mb-8">
+          <PortfolioReel />
+        </div>
+
+            <div class="flex justify-center md:justify-end -mt-4 mb-8">
+              <a href="/portfolio" class="text-sm font-semibold text-white/90 hover:text-white bg-black/30 hover:bg-black/40 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20 transition-colors">View all portfolio →</a>
+            </div>
+
+
         </h1>
 
         <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md">

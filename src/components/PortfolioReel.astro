@@ -1,0 +1,87 @@
+---
+// Horizontal reel of portfolio images with PhotoSwipe lightbox
+import 'photoswipe/style.css';
+import { portfolio } from '../data/portfolio';
+
+// Limit to first 10 items for a tighter reel
+const reelItems = portfolio.slice(0, 10);
+---
+
+<div class="relative z-20">
+  <div class="pointer-events-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white/80 backdrop-blur-md border border-cyan-200/50 rounded-2xl shadow-lg p-3">
+      <div id="reel-gallery" class="flex flex-nowrap gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+        {reelItems.map((it) => (
+          <a href={it.full} aria-label={it.alt} class="shrink-0 snap-start">
+            <picture>
+              {it.thumbAvif && (
+                <source type="image/avif" srcset={`${it.thumbAvif} 1x${it.thumbAvif2x ? ", " + it.thumbAvif2x + " 2x" : ''}`} />
+              )}
+              {it.thumbWebp && (
+                <source type="image/webp" srcset={`${it.thumbWebp} 1x${it.thumbWebp2x ? ", " + it.thumbWebp2x + " 2x" : ''}`} />
+              )}
+              <img
+                src={it.thumb}
+                alt={it.alt}
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="120"
+                class="h-28 w-44 md:h-32 md:w-52 object-cover rounded-2xl border border-primary-200/40 bg-white/60 shadow-sm"
+              />
+            </picture>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  // Initialize PhotoSwipe and lightweight auto-scroll
+  document.addEventListener('astro:page-load', async () => {
+    const gallery = document.getElementById('reel-gallery');
+
+    // PhotoSwipe (dynamic import for client-only)
+    const { default: PhotoSwipeLightbox } = await import('photoswipe/lightbox');
+    const lb = new PhotoSwipeLightbox({
+      gallery: '#reel-gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe')
+    });
+    lb.init();
+
+    // Auto-scroll (rotate) behavior
+    if (gallery) {
+      let paused = false;
+      const step = 300; // roughly one larger card including gap
+      const every = 1200; // ms (faster)
+
+      const tick = () => {
+        if (paused) return;
+        const max = gallery.scrollWidth - gallery.clientWidth;
+        const next = gallery.scrollLeft + step;
+        if (next >= max - 4) {
+          gallery.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          gallery.scrollBy({ left: step, behavior: 'smooth' });
+        }
+      };
+
+      const id = setInterval(tick, every);
+      gallery.addEventListener('mouseenter', () => { paused = true; });
+      gallery.addEventListener('mouseleave', () => { paused = false; });
+      gallery.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+      gallery.addEventListener('touchend', () => { paused = false; }, { passive: true });
+
+      // Clean up when navigating
+      document.addEventListener('astro:before-swap', () => clearInterval(id));
+    }
+  });
+</script>
+
